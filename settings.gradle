@@ -1,0 +1,3 @@
+rootProject.name = 'S3HtsjdkReaderFactory'
+include 'S3HtsjdkPlugin'
+

@@ -1,0 +1,39 @@
+apply plugin:  'com.github.johnrengelman.shadow'
+
+group 'com.epam'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+sourceSets {
+    main{
+        java {
+            srcDir 'src/main/java'
+        }
+    }
+    test{
+        java {
+            srcDir 'src/test/java'
+        }
+        resources {
+            srcDir 'testdata'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11',
+            'org.mockito:mockito-all:1.8.4',
+            'org.powermock:powermock-mockito-release-full:1.5.4'
+    compile 'com.github.samtools:htsjdk:2.1.1',
+            'com.amazonaws:aws-java-sdk:1.9.6'
+}
+
+shadowJar{
+    archiveName = "s3HtsjdkReaderFactory.jar"
+}

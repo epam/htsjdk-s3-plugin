@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '1.2.4'
+    id 'findbugs'
+    id 'checkstyle'
+    id "org.sonarqube" version "2.2"
+}
+
+group 'com.epam'
+version '1.0-SNAPSHOT'
+
+allprojects {
+    apply plugin: "java"
+
+    findbugs {
+        ignoreFailures = true
+        toolVersion = "3.0.1"
+        reportsDir = file("$project.buildDir/reports/findbugs")
+        effort = "max"
+    }
+}
